@@ -1,0 +1,4 @@
+applications:
+ - name: mytebakkode
+   random-route: true
+   memory: 128M
