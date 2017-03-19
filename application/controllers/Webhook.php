@@ -31,12 +31,19 @@ class Webhook extends CI_Controller {
       echo "Hello Coders!";
       header('HTTP/1.1 400 Only POST method allowed');
       exit;
-    } 
+    }
 
     // get request
     $body = file_get_contents('php://input');
     $this->signature = isset($_SERVER['HTTP_X_LINE_SIGNATURE']) ? $_SERVER['HTTP_X_LINE_SIGNATURE'] : "-";
     $this->events = json_decode($body, true);
+
+    // check if request not sending any event object
+    if(! isset($this->events['events']) || count($this->events['events']) < 1) {
+      echo "events from body request not found!";
+      header('HTTP/1.1 400 body request not found');
+      exit;
+    }
 
     // log every event requests
     // write_file('log.txt', $body . "\n" . $this->signature);
