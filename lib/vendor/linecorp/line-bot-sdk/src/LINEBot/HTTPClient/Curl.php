@@ -36,6 +36,8 @@ class Curl
     public function __construct($url)
     {
         $this->ch = curl_init($url);
+        curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, false);
     }
 
     /**
