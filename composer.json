@@ -4,7 +4,7 @@
 	},
 	"require": {
 		"php": ">=5.6",
-		"linecorp/line-bot-sdk": "^1.4",
+		"linecorp/line-bot-sdk": "^1.5",
 		"vlucas/phpdotenv": "^2.4"
 	}
 }
